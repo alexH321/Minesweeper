@@ -34,6 +34,7 @@ public class Board {
             }
         }
     }
+
     public void calculateValues(){
         int counter = 0;
         for(int a = 0; a < rows; a++) {
@@ -73,6 +74,19 @@ public class Board {
         }
     }
 
+    public void revealAround(int a, int b) {
+        for (int i = a-1; i < a+2; i++) {
+            for (int j = b-1; j < b+2; j++){
+                if (board[i][j].getAmountAround() == 0){
+                    if (!board[i][j].isVisible() && !board[i][j].isBomb() && !board[i][j].isFlag()){
+                        board[i][j].setVisible(true);
+                    }
+                }
+            }
+        }
+
+    }
+    /* TODO
     public void leftClick(int xPos, int yPos){
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
@@ -84,5 +98,5 @@ public class Board {
                 }
             }
         }
-    }
+    } */
 }
