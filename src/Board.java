@@ -51,8 +51,29 @@ public class Board {
             }
         }
     }
+
+    public void printBoard(){
+        for(int i = 0; i < rows; i++){
+            for (int j = 0; j < columns; j++){
+                if (!board[i][j].isVisible()) {
+                    System.out.println("[" + " " + "]");
+                }
+                else{
+                    if (board[i][j].isFlag()){
+                        System.out.println("[F]");
+                    }
+                    if (board[i][j].isBomb() && !board[i][j].isFlag()){
+                        System.out.println("[B]");
+                    }
+                    if (board[i][j].isBomb() && !board[i][j].isFlag()){
+                        System.out.println("[" + board[i][j].getAmountAround() + "]");
+                    }
+                }
+            }
+        }
+    }
+
     public void leftClick(int xPos, int yPos){
-        // to do: implement that the first click doesn't explode a bomb
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
                 if(xPos == i && yPos == j){
