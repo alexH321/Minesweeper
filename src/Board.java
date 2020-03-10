@@ -99,4 +99,28 @@ public class Board {
             }
         }
     } */
+    public void checkFirstClick(int xPos, int yPos){
+        for (int i = 0; i < rows; i++){
+            for (int j = 0; j < columns; j++){
+                if (xPos == i && yPos == j){
+                    if (board[xPos][yPos].isBomb()){
+                        board[xPos][yPos].setBomb(false);
+                        if (!board[0][0].isBomb()){
+                            board[0][0].setBomb(true);
+                        }
+                        else{
+                            Random rand = new Random();
+                            int posX = rand.nextInt(rows);
+                            int posY = rand.nextInt(columns);
+                            if (!board[posX][posY].isBomb()){
+                                board[posX][posY].setBomb(true);
+                            }
+                        }
+                        calculateValues();
+                    }
+                }
+            }
+        }
+    }
+
 }
