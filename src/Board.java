@@ -86,7 +86,7 @@ public class Board {
         }
 
     }
-    /* TODO
+
     public void leftClick(int xPos, int yPos){
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < columns; j++){
@@ -95,10 +95,14 @@ public class Board {
                         System.out.println("Lost");
                         break;
                     }
+                    else{
+                        revealAround(xPos, yPos);
+                    }
                 }
             }
         }
-    } */
+    }
+
     public void checkFirstClick(int xPos, int yPos){
         for (int i = 0; i < rows; i++){
             for (int j = 0; j < columns; j++){
@@ -123,4 +127,12 @@ public class Board {
         }
     }
 
+    public void rightClick(int xPos, int yPos){
+        if (board[xPos][yPos].isFlag()){
+            board[xPos][yPos].setFlag(false);
+        }
+        else{
+            board[xPos][yPos].setFlag(true);
+        }
+    }
 }
