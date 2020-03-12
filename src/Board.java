@@ -135,4 +135,8 @@ public class Board {
             board[xPos][yPos].setFlag(true);
         }
     }
+
+    public void setAmountOfBombs(int amount){
+        amountOfBombs = amount;
+    }
 }
