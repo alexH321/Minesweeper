@@ -9,5 +9,6 @@ public class Main {
         //TODO: eerste klik
         //TODO: linker of rechterklik
         rows = sc.hasNext();
+        yeet
     }
 }
