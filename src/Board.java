@@ -139,4 +139,30 @@ public class Board {
     public void setAmountOfBombs(int amount){
         amountOfBombs = amount;
     }
+
+    public boolean victoryCheck(){
+        int counter = 0;
+        int xPos = 0;
+        int yPos = 0;
+        for (int i = 0; i < rows; i++){
+            for (int j = 0; j < columns; j++) {
+                if (xPos == i && yPos == j){
+                    if (board[xPos][yPos].isBomb() && board[xPos][yPos].isFlag()){
+                        counter++;
+                    }
+                    if (board[xPos][yPos].isFlag() && !board[xPos][yPos].isBomb()){
+                        counter--;
+                    }
+                }
+            }
+        }
+        if (counter == amountOfBombs){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }
+
